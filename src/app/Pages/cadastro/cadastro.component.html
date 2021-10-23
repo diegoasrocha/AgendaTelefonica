@@ -1,0 +1,47 @@
+<div class="container mb-5">
+    <br>
+    <br>
+    <h4>Novo Contato</h4>
+    <hr />
+
+    <form novalidate class="row g-3" [formGroup]="cadastroForm" (ngSubmit)="cadastrarContato()">
+
+        <div class="col-md-6 col-9 mx-auto">
+            <label class="form-label" for="nome">Nome:</label>
+            <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+        </div>
+
+        <div class="col-md-6 col-9 mx-auto">
+            <label class="form-label" for="sobreNome">Sobrenome:</label>
+            <input class="form-control" id="sobreNome" type="text" placeholder="Sobrenome (requerido)"
+                formControlName="sobreNome" />
+        </div>
+
+        <div class="col-md-6 col-9 mx-auto">
+            <label class="form-label" for="numero">Telefone:</label>
+            <input class="form-control" id="numero" type="number" placeholder="Telefone (requerido)"
+                formControlName="numero" />
+        </div>
+
+        <div class="col-md-6 col-9 mx-auto">
+            <label class="form-label" for="tipo">Tipo:</label>
+            <select id="idTipoContato" class="form-select" formControlName="idTipoContato">
+                <option value="" selected>Selecione o tipo</option>
+                <option *ngFor="let tipo of tiposContatos" value="{{tipo.id}}">
+                    {{tipo.descricao}}
+                </option>
+            </select>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex col-9 mx-auto mx-md-0 pe-3 pe-sm-2">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a class="btn btn-light" [routerLink]="['/home']" role="button">Cancelar</a>
+
+            <!-- <button type="submit" class="btn btn-light col-md-2">Cancelar</button> -->
+        </div> 
+
+    </form>
+
+</div>
+<br />
+<br />

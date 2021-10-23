@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col">
+            <p class="h2">Contatos:</p>
+            <hr />
+        </div>
+    </div>
+    <div class="row d-none d-md-block">
+        <div class="col col-md-12 col-lg-10 offset-lg-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome completo</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contato of contatos">
+                        <th scope="row">{{ contato.id }}</th>
+                        <td>{{ contato.nome + ' ' + contato.sobreNome }}</td>
+                        <td>{{ contato.numero }}</td>
+                        <td>{{ contato.tipoContato.descricao }}</td>
+                        <td>
+                            <a class="btn p-0" (click)="removerContato(contato.id)" role="button">
+                                <i class="bi bi-trash text-danger"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="row d-block d-sm-block d-md-none">
+        <div class="col-sm-12">
+
+            <div *ngFor="let contato of contatos" class="card mt-1 mb-3 mx-auto" style="max-width: 400px;">
+                <div class="row g-0">
+                    <div class="col-3">
+                        <img src="assets/contact.png" height="60px"
+                            class="position-relative top-50 start-50 translate-middle" />
+                    </div>
+                    <div class="col-7">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ contato.nome + ' ' + contato.sobreNome }}</h5>
+                            <p class="card-text"><strong>{{ contato.tipoContato.descricao }}: </strong>{{ contato.numero
+                                }}</p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-lg position-relative top-50 start-50 translate-middle"
+                            (click)="removerContato(contato.id)" role="button">
+                            <i class="bi bi-trash text-danger"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

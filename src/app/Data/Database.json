@@ -1,0 +1,13 @@
+{
+  "Contatos": [],
+  "TiposContatos": [
+    {
+      "id": 1,
+      "descricao": "Fixo"
+    },
+    {
+      "id": 2,
+      "descricao": "Celular"
+    }
+  ]
+}
